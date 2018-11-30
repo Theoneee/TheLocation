@@ -1,9 +1,7 @@
 package the.one.location;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -29,37 +27,44 @@ public class TheLocation implements BDLocationListener {
     private Context mContext;
     private CityBackListener cityBackListener;
 
-
-    public TheLocation(Activity context) {
-        mContext = context;
+    public static TheLocation getInstance() {
+        if (theLocation == null)
+            theLocation = new TheLocation();
+        return theLocation;
     }
 
-    public static TheLocation getInstance(Activity activity) {
-        if (theLocation == null)
-            theLocation = new TheLocation(activity);
-        return theLocation;
+    public void init(Context context,CityBackListener cityBackListener){
+        this.mContext = context;
+        this.cityBackListener = cityBackListener;
+        initLocation();
+    }
+
+    public void start(){
+        mLocClient.start();
     }
 
     @Override
     public void onReceiveLocation(BDLocation bdLocation) {
-        Log.e(TAG, "onReceiveLocation: " );
         String city = null;
         if (bdLocation != null) {
             // getCity  市   getDistrict  可以获取到区、县，这样获取的天气更准确
             city = bdLocation.getDistrict();
         }
-        Log.e(TAG, "onReceiveLocation:  city = "+city );
-        if (null != cityBackListener)
-            cityBackListener.onCityBack(city, bdLocation);
+        if (null != cityBackListener){
+            if(null == city)
+                cityBackListener.onError("获取失败");
+            else
+                cityBackListener.onCityBack(city, bdLocation);
+        }
+        if(null != mLocClient){
+            mLocClient.unRegisterLocationListener(this);
+            mLocClient.stop();
+        }
     }
 
     public interface CityBackListener {
         void onCityBack(String city, BDLocation bdLocation);
-    }
-
-    public void init(CityBackListener cityBackListener) {
-        this.cityBackListener = cityBackListener;
-        initLocation();
+        void onError(String msg);
     }
 
     /**
@@ -77,7 +82,6 @@ public class TheLocation implements BDLocationListener {
             option.setIsNeedAddress(true);
             mLocClient.setLocOption(option);
         }
-        mLocClient.start();
     }
 
     /**
