@@ -3,7 +3,7 @@
 ## 使用方法
 
 ```
-implementation 'com.github.Theoneee:TheLocation:1.2'
+implementation 'com.github.Theoneee:TheLocation:1.0'
 ```
 
 manifests里添加（定位之类的permission不用再自己添加）
