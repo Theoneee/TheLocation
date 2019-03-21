@@ -20,7 +20,7 @@ public class TheLocation extends BDAbstractLocationListener {
     private static final String TAG = "TheLocation";
 
     @SuppressLint("StaticFieldLeak")
-    public static TheLocation theLocation;
+    private static TheLocation theLocation;
 
     private Context mContext;
     private LocationListener listener;
@@ -61,6 +61,8 @@ public class TheLocation extends BDAbstractLocationListener {
             }
             locationService.unregisterListener(this); //注销掉监听
             locationService.stop();
+            mContext = null;
+            listener = null;
         }
     }
 
