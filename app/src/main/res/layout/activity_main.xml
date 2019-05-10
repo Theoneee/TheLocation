@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/tvLocation"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:text="测试结果" />
+    android:layout_height="match_parent">
+
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/btn_re"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_centerInParent="true"
+        android:paddingTop="7dp"
+        android:textSize="17dp"
+        android:paddingBottom="7dp"
+        android:text="开始定位"/>
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:textSize="19sp"
+        android:layout_above="@id/btn_re"
+        android:gravity="center"
+        android:text="" />
+</RelativeLayout>
+
+
 
