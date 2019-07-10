@@ -28,4 +28,12 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions">
     </uses-permission>
+
+    <application>
+        <!--这里的value更换成自己的key-->
+        <meta-data android:name="com.baidu.lbsapi.API_KEY"
+            android:value="${BAIDU_API_KEY}"/>
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"/>
+
+    </application>
 </manifest>

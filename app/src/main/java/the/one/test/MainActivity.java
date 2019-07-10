@@ -1,10 +1,14 @@
 package the.one.test;
 
 import android.Manifest;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.baidu.location.BDLocation;
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import butterknife.BindView;
@@ -27,6 +31,12 @@ public class MainActivity extends BaseActivity {
     private static final String TAG = "MainActivity";
     @BindView(R.id.tvLocation)
     AppCompatTextView tvLocation;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        QMUIStatusBarHelper.setStatusBarLightMode(this);
+    }
 
     @Override
     protected int getContentViewId() {
@@ -87,7 +97,7 @@ public class MainActivity extends BaseActivity {
                     checkGps();
                     return;
                 }
-                if (location.getCity().isEmpty()) {
+                if (TextUtils.isEmpty(location.getCity())) {
                     checkGps();
                 }
                 BdLocationUtil.showBd(location);
@@ -102,7 +112,6 @@ public class MainActivity extends BaseActivity {
             showFailTips("请打开GPS");
         }
     }
-
 
     @OnClick(R.id.btn_re)
     public void onViewClicked() {
