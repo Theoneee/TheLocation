@@ -9,7 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        manifestPlaceholders = [ BAIDU_API_KEY: "bht5LPUxbBAXCi4GHRa8GrMfT8i1vUNR"]
+        manifestPlaceholders = [ AMAP_KEY: "12e45039c675b96a43d90fb67b36bafe"]
     }
     signingConfigs {
         release  {
@@ -33,7 +33,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(':library')
-    implementation 'com.gitee.theoneee:TheBase:1.0.6'
+    implementation 'com.gitee.theoneee:TheBase:1.0.9.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation project(':library')
 }

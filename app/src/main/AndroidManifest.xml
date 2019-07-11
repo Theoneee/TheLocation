@@ -3,14 +3,16 @@
     package="the.one.test">
 
     <application
-        android:name=".App"
+        android:name="the.one.base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="the.one.test.MainActivity">
+
+        <activity android:name=".Launcher"
+            android:theme="@style/StartAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,9 +20,8 @@
             </intent-filter>
         </activity>
 
-        <!--这里的value更换成自己的key-->
-        <!--<meta-data android:name="com.baidu.lbsapi.API_KEY"-->
-            <!--android:value="bht5LPUxbBAXCi4GHRa8GrMfT8i1vUNR"/>-->
+        <activity android:name=".MainActivity"/>
+
     </application>
 
 </manifest>
