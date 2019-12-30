@@ -1,4 +1,4 @@
-### 普通定位(只定位一次，获取到后便会关闭)
+### 高德地图定位封装(只定位一次，获取到后便会关闭)
 
 ## 使用方法
 
@@ -11,7 +11,7 @@ build里添加（定位之类的permission不用再自己添加）
 ```
  defaultConfig {
         .....
-        manifestPlaceholders = [ AMAP_KEY: "你的key"]
+        manifestPlaceholders = [ AMAP_KEY: "你申请到的高德地图的的key"]
     }
 ```
 
