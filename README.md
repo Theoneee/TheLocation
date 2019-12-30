@@ -11,7 +11,7 @@ build里添加（定位之类的permission不用再自己添加）
 ```
  defaultConfig {
         .....
-        manifestPlaceholders = [ AMAP_KEY: "你申请到的高德地图的的key"]
+        manifestPlaceholders = [ AMAP_KEY: "你申请到的高德地图key"]
     }
 ```
 
