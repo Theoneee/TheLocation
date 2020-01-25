@@ -30,6 +30,6 @@ import the.one.base.base.activity.LauncherActivity;
 public class Launcher extends LauncherActivity {
     @Override
     protected Class getActivity() {
-        return MainActivity.class;
+        return LocationActivity.class;
     }
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
+
+<!--        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton-->
+<!--            android:id="@+id/btn_start"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:paddingTop="7dp"-->
+<!--            android:paddingRight="20dp"-->
+<!--            android:paddingBottom="7dp"-->
+<!--            android:text="重新定位"-->
+<!--            android:textSize="17sp"-->
+<!--            android:visibility="invisible"-->
+<!--            tools:ignore="HardcodedText" />-->
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:textColor="@color/qmui_config_color_gray_4"
+            android:text=""
+            android:textSize="14sp" />
+
+
+</ScrollView>
+
+
+

@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 5
-        versionName "2.0.0"
+        versionCode 6
+        versionName "2.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -18,10 +18,15 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.7
+        targetCompatibility = 1.7
+    }
+    buildToolsVersion = '27.0.3'
 
 }
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-    api files('libs/AMap_Location_V4.7.0_20190708.jar')
+    api files('libs/AMap_Location_V4.7.2_20190927.jar')
 }
