@@ -1,4 +1,4 @@
-### 普通定位(只定位一次，获取到后便会关闭)
+### 高德地图定位封装(只定位一次，获取到后便会关闭)
 
 ## 使用方法
 
@@ -11,39 +11,39 @@ build里添加（定位之类的permission不用再自己添加）
 ```
  defaultConfig {
         .....
-        manifestPlaceholders = [ BAIDU_API_KEY: "你的key"]
+        manifestPlaceholders = [ AMAP_KEY: "你申请到的高德地图key"]
     }
 ```
 
  使用前权限要自己动态申请，
 ```
- BdLocationUtil.getInstance().requestLocation(this, new BdLocationUtil.LocationListener() {
-            @Override
-            public void onReceive(BDLocation location) {
-                if (null == location) {
-                    tvLocation.setText("定位失败");
-                    checkGps();
-                    return;
-                }
-                if (TextUtils.isEmpty(location.getCity())) {
-                    checkGps();
-                }
-                BdLocationUtil.showBd(location);
-                tvLocation.setText(location.getAddrStr());
-            }
-        });
+  if(null == locationUtil){
+      locationUtil =  TheLocationUtil.getInstance().init(this,this);
+   }
+  locationUtil.startLocation();
 ```     
 ```
-   private void checkGps() {
-        if (!BdLocationUtil.isOPen(MainActivity.this)) {
-            showFailTips("请打开GPS");
+ @Override
+    public void onLocationChanged(AMapLocation aMapLocation) {
+        hideLoadingDialog();
+        locationUtil.stopLocation();
+        TheLocationUtil.showLog(aMapLocation);
+        if (null == aMapLocation || TextUtils.isEmpty(aMapLocation.getCity())) {
+            tvLocation.setText("定位失败");
+            showFailDialog();
+            return;
         }
+        tvLocation.setText(aMapLocation.getAddress());
     }
 ```
 
 
 
-这个只是将百度定位的Demo再进行了下封装。28的SDK需要判断GPS是否开启。。。
+是百度定位有问题还是我太菜了？ 反正SDK到了28就有问题。用百度定位的Demo弄也是有。后台定位如果只有移动网络，几乎只能定位到市了。街道都返回不了。26所有都正常，就是到了28就有问题了。甚至根本无法定位。
+
+那为啥高德就可以？
+
+高德NB！！
         
 
 

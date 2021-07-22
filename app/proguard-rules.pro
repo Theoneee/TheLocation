@@ -19,3 +19,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep class com.amap.api.location.**{*;}
+
+-keep class com.amap.api.fence.**{*;}
+
+-keep class com.loc.**{*;}
