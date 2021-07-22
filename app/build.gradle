@@ -1,16 +1,15 @@
 apply plugin: 'com.android.application'
+apply from: "../base.gradle"
 
 android {
-    compileSdkVersion 28
     defaultConfig {
         applicationId "the.one.test"
-        minSdkVersion 20
-        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [ AMAP_KEY: "12e45039c675b96a43d90fb67b36bafe"]
     }
+
     signingConfigs {
         release  {
             storeFile file("weather.jks")
@@ -19,6 +18,7 @@ android {
             keyPassword "weather"
         }
     }
+
     buildTypes {
         debug {
             signingConfig signingConfigs.release
@@ -33,7 +33,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.gitee.theoneee:TheBase:1.0.9.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation project(':library')
+    implementation 'com.github.Theoneee:TheCore-MVVM:1.0.0'
 }

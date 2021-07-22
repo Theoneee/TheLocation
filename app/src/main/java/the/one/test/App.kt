@@ -1,4 +1,7 @@
-package the.one.test;
+package the.one.test
+
+import com.theone.mvvm.core.CoreApplication
+import the.one.location.BuildConfig
 
 //  ┏┓　　　┏┓
 //┏┛┻━━━┛┻┓
@@ -17,19 +20,15 @@ package the.one.test;
 //    ┗┓┓┏━┳┓┏┛
 //      ┃┫┫　┃┫┫
 //      ┗┻┛　┗┻┛
-
-import the.one.base.base.activity.LauncherActivity;
-
 /**
  * @author The one
- * @date 2019/7/11 0011
+ * @date 2021-07-22 16:19
  * @describe TODO
  * @email 625805189@qq.com
  * @remark
  */
-public class Launcher extends LauncherActivity {
-    @Override
-    protected Class getActivity() {
-        return MainActivity.class;
-    }
+class App:CoreApplication() {
+
+    override fun isDebug(): Boolean = BuildConfig.DEBUG
+
 }
