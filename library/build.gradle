@@ -18,5 +18,5 @@ android {
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-    api files('libs/AMap_Location_V4.7.0_20190708.jar')
+    api files('libs/AMap_Location_V4.7.2_20190927.jar')
 }
