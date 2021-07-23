@@ -58,7 +58,18 @@
     }
     
 ```
+5.释放
+
+```
+    override fun onDestroy() {
+        super.onDestroy()
+        mLocationManager?.release()
+    }
+
+```
 
 Demo中使用到的框架
 
-(TheCore-MVVM)[https://github.com/Theoneee/TheCore-MVVM]
+[TheCore-MVVM](https://github.com/Theoneee/TheCore-MVVM)
+[TheBase-MVVM](https://github.com/Theoneee/TheBase-MVVM)
+[TheCommon](https://github.com/Theoneee/TheCommon)
