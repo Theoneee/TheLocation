@@ -21,6 +21,8 @@
    
 ```
 
+[高德地图Key的获取](https://blog.csdn.net/litrainy/article/details/103255081)
+
 2.初始化
 ```
    private var mLocationManager: TheLocationManager? = null
