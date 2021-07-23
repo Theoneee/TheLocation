@@ -70,10 +70,12 @@
 
 ```
 
-[完整使用代码](https://github.com/Theoneee/TheLocation/blob/master/app/src/main/java/the/one/test/LocationActivity.kt)
+[完整示例代码](https://github.com/Theoneee/TheLocation/blob/master/app/src/main/java/the/one/test/LocationActivity.kt)
 
-Demo中使用到的框架
+### Demo中使用到的框架
 
 [TheCore-MVVM](https://github.com/Theoneee/TheCore-MVVM)
+
 [TheBase-MVVM](https://github.com/Theoneee/TheBase-MVVM)
+
 [TheCommon](https://github.com/Theoneee/TheCommon)
