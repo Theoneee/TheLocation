@@ -1,6 +1,8 @@
 package the.one.test
 
-import com.theone.mvvm.core.CoreApplication
+import android.app.Application
+import com.theone.mvvm.base.BaseApplication
+import com.theone.mvvm.core.app.CoreApplication
 import the.one.location.BuildConfig
 
 //  ┏┓　　　┏┓

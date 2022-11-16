@@ -49,7 +49,8 @@
 
         <!-- 定位需要的服务 适配Android Q需要加上android:foregroundServiceType="location"-->
         <service
-            android:name="com.amap.api.location.APSService" />
+            android:name="com.amap.api.location.APSService"
+            android:foregroundServiceType="location"/>
 
     </application>
 </manifest>

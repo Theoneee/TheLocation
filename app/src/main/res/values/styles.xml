@@ -1,8 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="BaseTheme">
-        <item name="qmui_topbar_height">50dp</item>
+    <style name="AppTheme" parent="CoreTheme">
     </style>
 
 </resources>

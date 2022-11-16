@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 apply from: "../base.gradle"
 
 android {
+
     defaultConfig {
         applicationId "the.one.test"
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        manifestPlaceholders = [ AMAP_KEY: "12e45039c675b96a43d90fb67b36bafe"]
+        manifestPlaceholders = [ AMAP_KEY: "15966e5bdb7655df768ace38ea544581"]
     }
 
     signingConfigs {
@@ -34,5 +34,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':library')
-    implementation 'com.github.Theoneee:TheCore-MVVM:1.0.0'
+    implementation "com.github.Theoneee.QMUI-MVVM:core:1.0.10"
 }
+
+

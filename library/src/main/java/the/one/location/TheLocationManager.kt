@@ -2,6 +2,7 @@ package the.one.location
 
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import com.amap.api.location.AMapLocation
 import com.amap.api.location.AMapLocationClient
 import com.amap.api.location.AMapLocationClientOption
@@ -37,7 +38,7 @@ class TheLocationManager private constructor() {
 
         private var INSTANCE: TheLocationManager? = null
 
-        fun getInstance(): TheLocationManager? {
+        fun getInstance(): TheLocationManager {
             if (null == INSTANCE) {
                 synchronized(TheLocationManager::class) {
                     if (null == INSTANCE) {
@@ -45,25 +46,27 @@ class TheLocationManager private constructor() {
                     }
                 }
             }
-            return INSTANCE
+            return INSTANCE!!
         }
 
     }
 
     private var mClient: AMapLocationClient? = null
 
-    private var mOptions: AMapLocationClientOption? = null
-
     fun init(
         context: Context,
         listener: AMapLocationListener,
-        options: AMapLocationClientOption? = null
+        options: AMapLocationClientOption = defaultOptions()
     ): TheLocationManager {
         if (null == mClient) {
-            mOptions = options ?: defaultOptions()
-            mClient = AMapLocationClient(context).apply {
-                setLocationOption(mOptions)
-                setLocationListener(listener)
+            try {
+                mClient = AMapLocationClient(context).apply {
+                    setLocationOption(options)
+                    setLocationListener(listener)
+                }
+            }catch (e:Exception){
+                e.printStackTrace()
+                Toast.makeText(context,"请检查用户隐私协议是否显示和同意",Toast.LENGTH_LONG).show()
             }
         }
         return this
@@ -104,7 +107,6 @@ class TheLocationManager private constructor() {
 
     fun release() {
         mClient = null
-        mOptions = null
     }
 
 }

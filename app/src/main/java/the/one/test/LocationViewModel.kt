@@ -1,7 +1,7 @@
 package the.one.test
 
+import com.theone.common.callback.databind.StringObservableField
 import com.theone.mvvm.base.viewmodel.BaseViewModel
-import com.theone.mvvm.callback.databind.StringObservableField
 
 //  ┏┓　　　┏┓
 //┏┛┻━━━┛┻┓
@@ -29,6 +29,6 @@ import com.theone.mvvm.callback.databind.StringObservableField
  */
 class LocationViewModel:BaseViewModel() {
 
-    val address:StringObservableField = StringObservableField()
+    val address: StringObservableField = StringObservableField()
 
 }
